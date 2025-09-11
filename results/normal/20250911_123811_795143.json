@@ -1,0 +1,58 @@
+{
+  "avg_latency_sec": 23.41464625460003,
+  "avg_throughput_rows_per_sec": 123.75106088725879,
+  "queries": [
+    {
+      "latency_sec": 5.022625082000104,
+      "throughput_rows_per_sec": 6.9806465427915905,
+      "rows": 5
+    },
+    {
+      "latency_sec": 4.441278797999985,
+      "throughput_rows_per_sec": 6.121524036049422,
+      "rows": 4
+    },
+    {
+      "latency_sec": 4.698878420000028,
+      "throughput_rows_per_sec": 4.821363924859116,
+      "rows": 5
+    },
+    {
+      "latency_sec": 42.589384996000035,
+      "throughput_rows_per_sec": 6.164155294577032,
+      "rows": 265
+    },
+    {
+      "latency_sec": 60.321063976999994,
+      "throughput_rows_per_sec": 3.8977117945187865,
+      "rows": 265
+    }
+  ],
+  "aggregated_metrics": {
+    "cpu": {
+      "pre": 47.0675,
+      "during": 64.28935050526064,
+      "post": 57.285000000000004
+    },
+    "memory_mb": {
+      "pre": 186.45244140625,
+      "during": 186.019840131614,
+      "post": 185.44609375
+    },
+    "threads": {
+      "pre": 29.675,
+      "during": 32.014059263106546,
+      "post": 30.1
+    },
+    "fds": {
+      "pre": 35.7,
+      "during": 35.91777482855399,
+      "post": 35.75
+    },
+    "net_kbps": {
+      "pre": 8.924508549216775,
+      "during": 193.02941747968868,
+      "post": 1.1709024829175276
+    }
+  }
+}

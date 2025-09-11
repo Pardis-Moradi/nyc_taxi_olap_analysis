@@ -1,0 +1,33 @@
+{
+  "files_combined": 10,
+  "avg_latency_sec": 1.078727003260004,
+  "avg_throughput_rows_per_sec": 4539.279892950959,
+  "aggregated_metrics": {
+    "cpu": {
+      "pre": 52.794,
+      "during": 81.180725,
+      "post": 70.596
+    },
+    "memory_mb": {
+      "pre": 184.752109375,
+      "during": 185.198234375,
+      "post": 185.74210937499998
+    },
+    "threads": {
+      "pre": 141.83999999999997,
+      "during": 144.555,
+      "post": 143.72
+    },
+    "fds": {
+      "pre": 139.78,
+      "during": 141.77,
+      "post": 141.84
+    },
+    "net_kbps": {
+      "pre": 3859.6934170027534,
+      "during": 9191.133830015122,
+      "post": 29.519393556420066
+    }
+  },
+  "figure_path": "results/combined_optimized/combined_10files_20250911_182249.png"
+}
