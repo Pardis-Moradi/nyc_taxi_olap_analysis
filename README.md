@@ -13,6 +13,7 @@ The goal of this project is to design and implement a scalable analytical backen
 
 ## 🧱 Project Structure
 
+```
 nyc_taxi_olap_project/
 ├── setup/                  # Initialization scripts for ClickHouse
 │   └── init_clickhouse.py  # Table/view creation and configuration
@@ -23,7 +24,7 @@ nyc_taxi_olap_project/
 ├── data/                   # Input and processed data files
 ├── run.sh                  # Main entrypoint for setup, reset, and run commands
 └── README.md               # You're reading it!
-
+```
 
 ## 📦 Components Explained
 
