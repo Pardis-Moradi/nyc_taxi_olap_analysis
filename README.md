@@ -68,6 +68,37 @@ Includes queries such as:
 
 Each query is designed to test a different aspect of OLAP performance and schema design.
 
+## 📊 Runtime Metrics (3-Phase)
+
+We profile each run in **three moments** — **Pre**, **During**, **Post** — to quickly localize bottlenecks.
+
+### What we capture (why)
+- **Memory (RSS, MB):** client buffering/result size; high **Post** ⇒ leak or retained data.
+- **CPU (%):** high **During** + slow query ⇒ CPU-bound or contention.
+- **Threads (count):** concurrency spikes; high **Post** ⇒ thread leaks / pool misconfig.
+- **Open FDs (count):** sockets/files in use; high **Post** ⇒ connection/file-descriptor leaks.
+- **Network Rate (KB/s):** high **During** ⇒ large result transfer or network bottleneck.
+
+### How it’s measured
+- **Pre/Post:** instant snapshots via `psutil` (+ short network-rate window).  
+- **During:** lightweight sampler every **100 ms**; we report the **mean**.  
+- **KPIs:** `latency = wall-clock`, `throughput = rows / latency`.
+
+### Outputs
+- **PNG** with five mini bar charts (Pre/During/Post) **per scenario**  
+  - Normal → `query_scenarios/results/normal/plots/`  
+  - Optimized (pool) → `query_scenarios/results/optimized/plots/`
+- **JSON** summary alongside the PNG:
+  ```json
+  {
+    "avg_latency_sec": 0.123,
+    "avg_throughput_rows_per_sec": 34567.8,
+    "aggregated_metrics": {
+      "cpu":{"pre":...,"during":...,"post":...},
+      "memory_mb":{...}, "threads":{...}, "fds":{...}, "net_kbps":{...}
+    }
+  }
+
 ## 🚀 How to Run
 
 ### 1. Install Dependencies
