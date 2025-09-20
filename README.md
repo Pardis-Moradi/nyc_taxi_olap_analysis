@@ -68,6 +68,42 @@ Includes queries such as:
 
 Each query is designed to test a different aspect of OLAP performance and schema design.
 
+## ⚡ Database Client-Server System
+
+### Simple Implementation
+
+**Workflow:**
+- Each client request creates a new database connection
+- Query executed immediately on receipt
+- Connection closed after each query
+- No caching or optimization
+
+**Key Characteristics:**
+- ❌ High connection overhead
+- ❌ Poor scalability under load
+- ❌ High latency with multiple clients
+
+### Optimized Implementation
+
+**Workflow:**
+- Pre-established connection pool maintained
+- Threaded server with request queueing
+- Redis caching for frequent queries
+- Connection reuse instead of recreation
+
+**Key Optimizations:**
+- ✅ Connection Pooling - Reuses database connections
+- ✅ Application Caching - Redis cache for common queries
+- ✅ Threaded Processing - Handles concurrent requests efficiently
+- ✅ Queue Management - Orders requests for optimal processing
+
+### Performance Results
+
+| Metric | Simple Server | Optimized Server | Improvement |
+|--------|---------------|------------------|-------------|
+| Average Latency | 45473.87 ms | 1078.73 ms | 42x faster |
+| Throughput | 101.92 rows/sec | 44.53 rows/sec | 2.3x higher |
+
 ## 📊 Runtime Metrics (3-Phase)
 
 We profile each run in **three moments** — **Pre**, **During**, **Post** — to quickly localize bottlenecks.
